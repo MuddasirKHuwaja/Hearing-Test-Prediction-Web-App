@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hearing Test Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Hearing Test Prediction Web App</h1>
+        <p>Welcome to the Hearing Test Prediction application. This tool helps you predict hearing test results based on your CSV data.</p>
+        <h2>Upload Your Data</h2>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".csv" required>
+            <button type="submit">Predict</button>
+        </form>
+        <p class="note">Note: Please ensure your data is in CSV format and structured correctly, following the example provided.</p>
+        <h3>About This Web App</h3>
+        <p>This application utilizes machine learning algorithms to provide predictions based on historical hearing test data. Simply upload your data file, and the system will process it to generate the predicted results.</p>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
